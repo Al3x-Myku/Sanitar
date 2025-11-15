@@ -1,0 +1,33 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() {
+    srand(time(0)); // inițializare random
+    int numarSecret = rand() % 20 + 1; // număr între 1 și 20
+    int ghicit, incercari = 5;
+
+    cout << "Ghicește numărul secret (între 1 și 20)!\n";
+    cout << "Ai " << incercari << " încercări.\n";
+
+    for (int i = 1; i <= incercari; i++) {
+        cout << "Încercarea " << i << ": ";
+        cin >> ghicit;
+
+        if (ghicit == numarSecret) {
+            cout << "Felicitări! Ai ghicit numărul!\n";
+            break;
+        } else if (ghicit < numarSecret) {
+            cout << "Prea mic!\n";
+        } else {
+            cout << "Prea mare!\n";
+        }
+
+        if (i == incercari)
+            cout << "Ai pierdut! Numărul secret era: " << numarSecret << endl;
+    }
+
+    return 0;
+}
